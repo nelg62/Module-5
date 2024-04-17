@@ -1,20 +1,33 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = [3000, 3009, 3007]
+// import all calculator routes (up the top)
+const calculatorRoutes =
+require('/src/calculatorRoutes');
+
 
 app.use('/', express.static('public'))
+
+
+port.forEach((item) => {
 
 app.get('/', (req, res) => {
 res.send('Hello World!')
 })
 
-app.listen(port, () => {
+// map the calculator routes to our app
+app.use('/calculator', calculatorRoutes);
+
+app.listen(item, () => {
 console.log(`Example app listening
-at http://localhost:${port}`)
+at http://localhost:${item}`)
 })
+})
+
+
+
 
 
 // node .\index.js
 // npm run start     --created of the above 
 
-// exercise1 foreach loop  add more port in an array and add app get and app listen to the for loop
