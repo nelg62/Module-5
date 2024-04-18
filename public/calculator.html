@@ -1,20 +1,78 @@
 <html lang="en">
-<head>
-<title>Calculator Example</title>
-</head>
-<body>
-<div>Result
-<span id="result"></span>
-</div>
-</body>
-<script>
-let num1 = 2;
-let num2 = 4;
-fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
-.then(response => response.json())
-.then(data => {
-document.getElementById("result").innerHTML =
-data.result;
-})
-</script>
+  <head>
+    <title>Calculator Example</title>
+  </head>
+  <body>
+    <label for="fnumber">First Number:</label
+    ><input type="number" id="fnumber" min="0" max="100" />
+
+    <select id="MathValues">
+      <option class="typebtn" value="+">+</option>
+      <option class="typebtn" value="-">-</option>
+      <option class="typebtn" value="*">*</option>
+      <option class="typebtn" value="/">/</option>
+    </select>
+
+    <label for="snumber">Secound Number: </label
+    ><input type="number" id="snumber" min="0" max="100" />
+
+    <button class="enter" value="=" onclick="calculate()">=</button>
+
+    <button onclick="resetbtn()">Reset</button>
+
+    <div>
+      Result
+      <span id="result"></span>
+    </div>
+  </body>
+  <script>
+    // let num1 = 2;
+    // let num2 = 4;
+
+    function calculate() {
+      let num1 = document.getElementById("fnumber").value;
+      let num2 = document.getElementById("snumber").value;
+      let mathpart = document.getElementById("MathValues").value;
+
+      switch (mathpart) {
+        case "+":
+          fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById("result").innerHTML = data.result;
+            });
+          break;
+
+        case "-":
+        fetch(`/calculator/subtract?num1=${num1}&num2=${num2}`)
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById("result").innerHTML = data.result;
+            });
+          break;
+
+        case "*":
+        fetch(`/calculator/multiply?num1=${num1}&num2=${num2}`)
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById("result").innerHTML = data.result;
+            });
+          break;
+
+        case "/":
+        fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById("result").innerHTML = data.result;
+            });
+          break;
+      }
+    }
+
+    function resetbtn() {
+      document.getElementById("fnumber").value = "";
+      document.getElementById("snumber").value = "";
+      document.getElementById('result').innerHTML = "";
+    }
+  </script>
 </html>
