@@ -4,9 +4,13 @@ const port = [3000, 3009, 3007]
 
 const testRoutes =
 require('./routes/myTestRoutes');
+const calculatorRoutes =
+require('./routes/calculatorRoutes');
 
 app.use('/', express.static('public'))
 
+// map the calculator routes to our app
+app.use('/calculator', calculatorRoutes);
 
 port.forEach((item) => {
 
