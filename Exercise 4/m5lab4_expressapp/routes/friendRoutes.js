@@ -24,7 +24,14 @@ router.get('/', (req, res) => {
 router.get('/filter', (req, res) => {
     console.log(req.query)
     let filterGender = req.query.gender;
+    let filterName = req.query.letter
     let matchingFriends = [...friends];
+
+    if (filterName) {
+matchingFriends = matchingFriends.filter(friends => friends.name.charAt(0).toLowerCase() == filterName.toLowerCase())
+}
+
+
 
     if (filterGender) {
         matchingFriends = matchingFriends.filter(friend => friend.gender == filterGender);
