@@ -51,14 +51,18 @@ router.get('/info', (req, res) => {
     console.log(req.headers)
 
     // Modify this response to just return info on the user-agent, content-type and accept headers
-    res.json(req.headers)  
+    res.json(`${req.headers["user-agent"]},  ${req.headers["content-type"]}, ${req.headers["accept"]}`)  
 })
 
 // 3. Dynamic request param endpoint - get the friend matching the specific ID ie. /friends/3
 router.get('/:id', (req, res) => {
     console.log(req.params)
     let friendId = req.params.id; // 'id' here will be a value matching anything after the / in the request path
-
+    let matchingFriends = [...friends];
+    
+    if(friendId) {
+        matchingFriends = matchingFriends.filter(friends => friends.id == friendId)
+    }
     // Modify this function to find and return the friend matching the given ID, or a 404 if not found
 
     // Modify this response with the matched friend, or a 404 if not found
