@@ -63,10 +63,16 @@ router.get('/:id', (req, res) => {
     if(friendId) {
         matchingFriends = matchingFriends.filter(friends => friends.id == friendId)
     }
+
+    if (matchingFriends.length > 0) {
+        res.status(200).json(matchingFriends)
+    } else {
+        res.status(404).json({error: "No Person with ID found"+matchingFriends})
+    }
     // Modify this function to find and return the friend matching the given ID, or a 404 if not found
 
     // Modify this response with the matched friend, or a 404 if not found
-    res.json({result: 'Finding friend with ID ' + friendId})
+    // res.json({result: 'Finding friend with ID ' + friendId})
 })
 
 // a POST request with data sent in the body of the request, representing a new friend to add to our list
