@@ -1,3 +1,4 @@
+const userRoutes = require('./routes/userRoutes');
 const express = require('express')
 const app = express()
 const port = [3000, 3009, 3007]
@@ -6,6 +7,11 @@ const testRoutes =
 require('./routes/myTestRoutes');
 const calculatorRoutes =
 require('./routes/calculatorRoutes');
+
+// parse requests of content-type - application/json
+app.use(express.json());
+
+app.use('/users', userRoutes);
 
 app.use('/', express.static('public'))
 
