@@ -71,7 +71,7 @@ router.get("/:id", (req, res) => {
 //     );
 //   }
 
-foundID = matchingFriends.find(friendId) 
+foundID = matchingFriends.find(friend => friend.id == friendId) 
 
 console.log(foundID)
 
