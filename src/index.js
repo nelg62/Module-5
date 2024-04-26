@@ -4,8 +4,19 @@ const express = require('express')
 // const port = [3000, 3009, 3007]
 // index.js - updated version
 // import the app
+
+const swaggerUi = require('swagger-ui-express');
+swaggerDocument = require('../swagger.json');
+
+
 const app = require('./app');
 const port = 3000
+
+app.use(
+    '/api-docs',
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerDocument)
+    );
 
 const testRoutes =
 require('./routes/myTestRoutes');
