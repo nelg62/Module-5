@@ -1,31 +1,31 @@
 class Calculator {
   constructor() {
-    this.id = Date.now();
+    this.id = Math.floor(Math.random() * 1_000_000);;
   }
-  #log = (value) => {
-    console.log(`[Calculator :${this.id}]:${value}`);
+  #log = (callerID, value) => {
+    console.log(`[Calculator :${this.id}]: ${callerID} ${value}`);
   };
   add(num1, num2) {
     const value = num1 + num2;
-    this.#log(value);
+    this.#log('add',value);
     return value;
   }
 
   subtract(num1, num2) {
     const value = num1 - num2
-    this.#log(value)
+    this.#log('subtract',value)
     return value
   }
 
   divide(num1, num2) {
     const value = num1 / num2
-    this.#log(value)
+    this.#log('divide',value)
     return value
   }
 
   multiply(num1, num2) {
     const value = num1 * num2
-    this.#log(value)
+    this.#log('multiply',value)
     return value
   }
 }
