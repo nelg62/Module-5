@@ -47,6 +47,90 @@
         }
         }
         }
-        }
+        },
+
+        "/calculator/subtract": {
+            "get": {
+            "tags": [
+            "Addition Service"
+            ],
+            "summary": "subtract 2 numbers",
+            "parameters": [
+            {
+            "name": "num1",
+            "in": "query",
+            "description": "The First Number"
+            
+            },
+            {
+            "name": "num2",
+            "in": "query",
+            "description": "The Second number"
+            
+            }
+            ],
+            "responses": {
+            "200": {
+            "description": "This service allows you to subtract two numbers together"
+            }
+            }
+            }
+            },
+
+            "/calculator/divide": {
+                "get": {
+                "tags": [
+                "Addition Service"
+                ],
+                "summary": "divide 2 numbers",
+                "parameters": [
+                {
+                "name": "num1",
+                "in": "query",
+                "description": "The First Number"
+                
+                },
+                {
+                "name": "num2",
+                "in": "query",
+                "description": "The Second number"
+                
+                }
+                ],
+                "responses": {
+                "200": {
+                "description": "This service allows you to divide two numbers together"
+                }
+                }
+                }
+                },
+
+                "/calculator/multiply": {
+                    "get": {
+                    "tags": [
+                    "Addition Service"
+                    ],
+                    "summary": "multiply 2 numbers",
+                    "parameters": [
+                    {
+                    "name": "num1",
+                    "in": "query",
+                    "description": "The First Number"
+                    
+                    },
+                    {
+                    "name": "num2",
+                    "in": "query",
+                    "description": "The Second number"
+                    
+                    }
+                    ],
+                    "responses": {
+                    "200": {
+                    "description": "This service allows you to multiply two numbers together"
+                    }
+                    }
+                    }
+                    }
         }
     }
