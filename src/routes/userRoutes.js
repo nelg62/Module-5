@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
 let newUser = req.body; // first update index.js
 console.log(newUser)
 // we can add some validation as well
-if (!newUser.name || !newUser.location) {
+if (!newUser.name || !newUser.country) {
 res.status(500).json({error: 'User must contain a name and location'});
 return;
 }
