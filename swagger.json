@@ -162,48 +162,37 @@
       }
     },
 
-
     "/users/": {
-        "post": {
-          "tags": ["update old user or add new user"],
-          "summary": "update old user or add new user",
-          "parameters": [
-            {
-                "name": "Users",
-                "in":"body",
-                "description": "update old user or add new user",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "integer"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "country": {
-                            "type": "string"
-                        }
-                    }
+      "post": {
+        "tags": ["update old user or add new user"],
+        "summary": "update old user or add new user",
+        "parameters": [
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "update old user or add new user",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
                 }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "This service allows you to update old user or add new user"
+              }
             }
           }
-    
-          
-
+        ],
+        "responses": {
+          "200": {
+            "description": "This service allows you to update old user or add new user"
+          }
         }
       }
-
-
+    }
   }
 }
-
-
-
-
-
