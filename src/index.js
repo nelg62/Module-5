@@ -12,6 +12,9 @@ swaggerDocument = require('../swagger.json');
 const app = require('./app');
 const port = 3000
 
+const fakeEcomWebsite = require('./routes/RoutesFakeEcomWebsite')
+
+
 app.use(
     '/api-docs',
     swaggerUi.serve,
@@ -32,6 +35,8 @@ app.use('/', express.static('public'))
 
 // map the calculator routes to our app
 app.use('/calculator', calculatorRoutes);
+
+app.use('/FakeEcom', fakeEcomWebsite)
 
 // port.forEach((item) => {
 
