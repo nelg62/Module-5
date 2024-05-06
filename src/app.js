@@ -6,11 +6,7 @@ const port = 3000
 const calculatorRoutes =
 require('./routes/calculatorRoutes');
 
-const fakeEcomWebsite = require('./routes/RoutesFakeEcomWebsite')
-
 app.use('/calculator', calculatorRoutes);
-
-app.use('/FakeEcom', fakeEcomWebsite)
 
 
 // export the app

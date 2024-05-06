@@ -193,6 +193,75 @@
           }
         }
       }
+    },
+
+    "/renderData": {
+      "get": {
+        "tags": ["Get Website Data"],
+        "summary": "Get Website Data",
+        "parameters": [
+          {
+            "name": "Users",
+            "in": "body",
+            "description": "Get Website Data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "category": {
+                        "type": "string",
+                        "description": "Item Category"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Item Description"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "description": "Item ID"
+                      },
+                      "image": {
+                        "type": "string",
+                        "description": "Item Description"
+                      },
+                      "price": {
+                        "type": "number",
+                        "description": "Item Price"
+                      },
+                      "rating": {
+                        "type": "object",
+                        "properties": {
+                          "count": {
+                            "type": "integer",
+                            "description": "Rating Count"
+                          },
+                          "rate": {
+                            "type": "number",
+                            "description": "Ratng of items"
+                          }
+                        }
+                      },
+                      "title": {
+                        "type": "string",
+                        "description": "Item Title"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This service allows you to Get Website Data"
+          }
+        }
+      }
     }
   }
 }
